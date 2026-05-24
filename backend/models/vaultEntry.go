@@ -12,8 +12,16 @@ func CreateVaultEntry(guid string, blob []byte) *VaultEntry {
 	}
 	return &VaultEntryObject
 }
+func CreateVaultEntryFromRequest(guid string, req CreateVaultEntryRequest) *VaultEntry {
+	var VaultEntryObject VaultEntry = VaultEntry{
+		GUID: guid,
+		Blob: req.Blob,
+	}
+	return &VaultEntryObject
+}
 
 type CreateVaultEntryRequest struct {
+	Blob []byte
 }
 type CreateVaultEntryHeaders struct {
 }
